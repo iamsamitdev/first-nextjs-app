@@ -3,10 +3,10 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 text-slate-800">
+    <main className="min-h-screen text-slate-800">
 
       <section className="relative">
-        <div className="relative h-[420px] max-w-6xl mx-auto px-6 py-10">
+        <div className="relative h-105 max-w-6xl mx-auto px-6 py-10">
           <div className="absolute inset-0 rounded-lg overflow-hidden shadow-lg">
             <Image
               src="https://www.bts.co.th/assets/images/home/bts-car.png"
@@ -42,16 +42,6 @@ export default function Home() {
           <p className="mt-2 text-sm text-slate-600">Contact us for help and feedback.</p>
         </div>
       </section>
-
-      <footer className="bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between">
-          <div>© {new Date().getFullYear()} BTS — All rights reserved</div>
-          <div className="flex gap-4">
-            <Link href="#" className="hover:underline">Privacy</Link>
-            <Link href="#" className="hover:underline">Terms</Link>
-          </div>
-        </div>
-      </footer>
     </main>
   )
 }

@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Thai } from "next/font/google";
+// import { Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import localFont from 'next/font/local'
 
-const notoSansThai = Noto_Sans_Thai({
-  variable: "--font-noto-sans-thai",
-  subsets: ["latin", "thai"],
-});
+const myFont = localFont({
+  src: '../public/fonts/notosansthai/NotoSansThai-Regular.ttf',
+})
 
+// const notoSansThai = Noto_Sans_Thai({
+//   variable: "--font-noto-sans-thai",
+//   subsets: ["latin", "thai"],
+// });
 
 export const metadata: Metadata = {
   title: "First Next.js App",
@@ -22,21 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSansThai.variable} ${notoSansThai.className} antialiased`}
+        className={`${myFont.className} antialiased`}
       >
-        
-        <ul className="flex space-x-4 items-center justify-center py-4 bg-blue-200">
-          <li><Link href="/">หน้าหลัก</Link></li>
-          <li><Link href="/about">เกี่ยวกับ</Link></li>
-          <li><Link href="/contact">ติดต่อ</Link></li>
-          <li><Link href="/user">ผู้ใช้</Link></li>
-          <li><Link href="/counter">ตัวนับ</Link></li>
-          <li><Link href="/blog">บล็อก</Link></li>
-        </ul>
-
+        <Navbar />
         <main className="p-4">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   )

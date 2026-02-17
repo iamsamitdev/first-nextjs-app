@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 async function getUsers() {
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   return res.json()
@@ -19,7 +21,7 @@ export default async function UserPage() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center">
             <h1 className="text-4xl mb-6">Users</h1>
             <table className="table-auto border rounded-lg">
                 <thead>
@@ -34,7 +36,11 @@ export default async function UserPage() {
                 { users.map((user:User, index:number) => (
                         <tr className="border" key={index}>
                             <td className="px-6 py-3 border">{user.id}</td>
-                            <td className="px-6 py-3 border">{user.name}</td>
+                            <td className="px-6 py-3 border">
+                                <Link href={`/user/${user.id}`} className="text-blue-500 hover:underline">
+                                {user.name}
+                                </Link>
+                            </td>
                             <td className="px-6 py-3 border">{user.phone}</td>
                             <td className="px-6 py-3 border">{user.email}</td>
                         </tr>
